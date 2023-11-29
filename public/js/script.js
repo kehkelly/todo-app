@@ -1,3 +1,5 @@
+const { json } = require("express")
+
 function alterarTema() {
     const tema = localStorage.getItem("tema")
     const body = document.querySelector("body")
@@ -42,3 +44,14 @@ function verificarTema() {
 }
 
 verificarTema()
+
+function completarTarefa(id) {
+    fetch("http://localhost:3000/completar", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+    })
+    window.location.reload()
+}
