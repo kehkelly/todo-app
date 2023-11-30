@@ -7,6 +7,7 @@
                     <input type="checkbox" id="tarefa-{{this.id}}" checked onchange="descompletarTarefa({{this.id}})">
                     <label for="tarefa-{{this.id}}">{{this.descricao}}</label>
                 </div>
+
                 <button>
                     <img src="/imagens/x-icon.png" alt="icone de X para excluir uma tarefa">
                 </button>
@@ -14,7 +15,7 @@
         </div>
         {{/each}}
         <div class="informacoes">
-            <p> {{quantidadeTarefas}} Tarefas ativas</p>
+            <p> {{quantidadeTarefas}} Tarefas completas</p>
             <div class="botoes">
                 <a href="/">Todas</a>
                 <a href="/ativas">Ativas</a>
