@@ -1,4 +1,26 @@
-const { json } = require("express")
+function completarTarefa(id) {
+    fetch("http://localhost:3000/completar", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+    })
+
+    window.location.reload()
+}
+
+function descompletarTarefa(id) {
+    fetch("http://localhost:3000/descompletar", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id })
+    })
+
+    window.location.reload()
+}
 
 function alterarTema() {
     const tema = localStorage.getItem("tema")
@@ -7,6 +29,7 @@ function alterarTema() {
 
     if (tema) {
         let novoTema
+
         if(tema==="light"){
             novoTema = "dark"
             button.innerHTML = `<img src="/imagens/sun-icon.png" alt="Ícone do sol">`
@@ -44,25 +67,3 @@ function verificarTema() {
 }
 
 verificarTema()
-
-function completarTarefa(id) {
-    fetch("http://localhost:3000/completar", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id })
-    })
-    window.location.reload()
-}
-
-function descompletarTarefa(id) {
-    fetch("http://localhost:3000/descompletar", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id })
-    })
-    window.location.reload()
-}
